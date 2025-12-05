@@ -42,6 +42,11 @@ class TicTacToe:
             pygame.draw.line(self.win, BLACK, (0, row*SQUARE_SIZE), (360, row*SQUARE_SIZE), 4)
             pygame.draw.line(self.win, BLACK, (row*SQUARE_SIZE, 0), (row*SQUARE_SIZE, 360), 4)
 
+    def show(self):
+        self.draw_board()
+        self.draw_symbol()
+        pygame.display.flip()
+
 
     def draw_symbol(self) -> None:
         for row in range(ROWS):
@@ -73,6 +78,19 @@ class TicTacToe:
                 if self.board[row][col] == "__":
                     return False
         return True
+    
+    def check_end(self):
+        symb = self.check_victory()
+        if symb == "X":
+            print("Victoire du joueur X")
+            return True
+        elif symb == "O":
+            print("Victoire du joueur O")
+            return True
+        elif self.check_full():
+            print("Égalité")
+            return True
+        return False
                 
 
     
