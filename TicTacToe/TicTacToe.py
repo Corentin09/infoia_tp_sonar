@@ -15,7 +15,6 @@ class TicTacToe:
         self.player = 1
         self.win = pygame.display.set_mode((WIDTH, HEIGHT))
         self.board = [["__" for _ in range(3)] for _ in range(3)]
-
         self.images = self.load_images()
 
 
